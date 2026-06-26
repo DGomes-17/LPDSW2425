@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ProjetoLab.Views.UtilizadorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White">
+
+
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <TextBlock Text="Informações do Utilizador"
+                   FontSize="22" FontWeight="Bold"
+                   Foreground="DarkRed" HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <!-- Formulário -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Nome:" Width="80" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Nome}" Width="300"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Email:" Width="80" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding Email}" Width="300"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Função:" Width="80" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding Funcoes}" SelectedItem="{Binding Funcao}" Width="300"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Foto:" Width="80" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding CaminhoFoto}" Width="200" IsReadOnly="True"/>
+                <Button Content="Procurar" Width="80" Margin="10,0,0,0"
+                        Command="{Binding SelecionarFotoCommand}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Botões -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Guardar" Width="100" Margin="10,0"
+                    Command="{Binding GuardarCommand}"
+                    Background="#B22222" Foreground="White"/>
+           
+        </StackPanel>
+    </Grid>
+</UserControl>
+
